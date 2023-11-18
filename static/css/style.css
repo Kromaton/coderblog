@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    background-color: black;
+
+
+}
+h1 { 
+    color: white;
+}
+
+.contenido {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    justify-content: center;
+    border: 1px solid white;
+    block-size: fit-content;
+    width: fit-content;
+    height: fit-content;
+    margin: 60px auto auto auto;
+    padding: 10px 10px 10px 10px;
+    background-color: gray;
+
+}
+
+#index {
+    margin-top: 200px;
+    background-color: aqua;
+  
+}
+#firma {
+    justify-self: start;
+}

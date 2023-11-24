@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from profiles.models import Avatar
 
 class UserRegisterForm(UserCreationForm):
     # Esto es un ModelForm
@@ -17,3 +18,8 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = ['last_name', 'first_name', 'email']
 
+class AvatarFormulario(forms.ModelForm):
+    
+    class Meta:
+        model = Avatar
+        fields = ['imagen']

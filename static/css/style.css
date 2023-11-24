@@ -8,6 +8,8 @@
   
 body {
     background-color: black;
+    background-image: url(../assets/img/fondo.jpg);
+    background-size: cover;
 
 
 }
@@ -16,18 +18,18 @@ h1 {
 }
 
 .contenido {
-    display: grid;
+    display: flexbox;
     place-items: center;
     place-content: center;
+    width: 80%;
     justify-content: center;
     border: 1px solid white;
-    block-size: fit-content;
-    width: fit-content;
-    height: fit-content;
-    margin: 60px auto auto auto;
+    margin: 60px 10% 60px 10%;
     padding: 10px 10px 10px 10px;
     background-color: gray;
-
+}
+.card-footer {
+    font-size: small;
 }
 
 #index {

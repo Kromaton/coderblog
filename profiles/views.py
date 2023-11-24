@@ -6,21 +6,17 @@ from django.contrib.auth.views import LogoutView
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
-
-from profiles.forms import UserRegisterForm, UserUpdateForm
+from profiles.forms import UserRegisterForm, UserUpdateForm, AvatarFormulario
 
 
 def registro(request):
     if request.method == "POST":
-        # Guardado de datos
         formulario = UserRegisterForm(request.POST)
-
         if formulario.is_valid():
-            formulario.save()  # Esto lo puedo usar porque es un model form
+            formulario.save()
             url_exitosa = reverse('index')
             return redirect(url_exitosa)
-    else:  # GET
-        # Descargar formulario inicial
+    else:
         formulario = UserRegisterForm()
     return render(
         request=request,
@@ -28,25 +24,23 @@ def registro(request):
         context={'form': formulario},
     )
 
-
 def login_view(request):
     next_url = request.GET.get('next')
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
 
         if form.is_valid():
-            data = form.cleaned_data  # diccionario
+            data = form.cleaned_data
             usuario = data.get('username')
             password = data.get('password')
             user = authenticate(username=usuario, password=password)
-            # user puede ser un usuario o None
-            if user:  # Chequeo usario existe
-                login(request=request, user=user)  # creas la sesión al usuario
+            if user: 
+                login(request=request, user=user)
                 if next_url:
                     return redirect(next_url)
                 url_exitosa = reverse('index')
                 return redirect(url_exitosa)
-    else:  # GET
+    else:
         form = AuthenticationForm()
     return render(
         request=request,
@@ -56,7 +50,7 @@ def login_view(request):
 
 
 class CustomLogoutView(LogoutView):
-    template_name = 'profiles/logout.html'
+    template_name = 'index.html'
 
 class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     form_class = UserUpdateForm
@@ -65,3 +59,21 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
+    
+def agregar_avatar(request):
+    if request.method == "POST":
+        formulario = AvatarFormulario(request.POST, request.FILES)
+        
+        if formulario.is_valid():
+            avatar = formulario.save()
+            avatar.user = request.user
+            avatar.save()
+            url_exitosa = reverse('index')
+            return redirect(url_exitosa)
+    else:
+        formulario = AvatarFormulario()
+    return render(
+        request=request,
+        template_name="profiles/formulario_avatar.html",
+        context={'form': formulario},
+    )

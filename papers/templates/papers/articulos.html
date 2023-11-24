@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<div class="contenido">
+    <ul>
+    {% for articulo in object_list %}
+            <div class="card border-white mb-2" style="max-width: 90%;">
+            <div class="card-header text-white bg-dark border-primary">{{ articulo.autor }}</div>
+            <div class="card-body bg-light">
+                <h5 class="card-title">{{ articulo.titulo }}</h5>
+                <p class="card-text">{{ articulo.subtitulo }}</p>
+            </div>
+            <div class="card-footer bg-secondary border-secondary">
+                {{ articulo.creado }}
+                <a href="{% url 'detalle' articulo.id %}" class="btn btn-dark">Ver mas</a>
+            </div>
+        </div>
+         {% empty %}
+         <h1>No hay entradas.</h1>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock contenido %}
+

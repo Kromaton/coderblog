@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block contenido %}
+<div class='contenido'>
+<p>
+<strong>Titulo</strong> {{ object.titulo }}
+</p>
+<p>
+<strong>Subtitulo</strong> {{ object.subtitulo }}
+</p>
+<p>
+<strong>Contenido</strong> {{ object.contenido }}
+</p>
+<p>
+<strong>Autor</strong> {{ object.autor }}
+</p>
+<p>
+<strong>Creado</strong> {{ object.creado }}
+</p>
+<p>
+<strong>Modificado</strong> {{ object.editado }}
+</p>
+</div>
+<a href="{% url 'editar' articulo.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editar</a>
+<a href="{% url 'eliminar' articulo.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Borrar</a>
+<a href="{% url 'listar' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Volver</a>
+
+{% endblock contenido %}

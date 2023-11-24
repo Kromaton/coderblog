@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block contenido %}
+<div class="contenido">
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<p>¿Estas seguro deseas eliminar esta entrada?</p>
+<input type="submit" value="Eliminar" />
+</form>
+<br>
+<a href="{% url 'listar' %}">Volver lista</a>
+</div>
+{% endblock contenido %}

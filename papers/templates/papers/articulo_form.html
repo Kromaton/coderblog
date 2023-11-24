@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<div class="contenido">
+  <form method="post">
+    {% csrf_token %}
+    {{ form.text | safe }}
+    {{ form.media }}
+    {{ form.as_p }}
+    <input type="submit" value="guardar" />
+  </form>
+</div>
+{% endblock contenido %}

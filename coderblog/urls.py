@@ -17,10 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from coderblog.views import index, acerca
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("profiles.urls")),
+    path("pages/", include("papers.urls")),
     path('', index, name='index'),
-    path('acerca/', acerca, name='acerca')
+    path('acerca/', acerca, name='acerca'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

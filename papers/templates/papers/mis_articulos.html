@@ -5,9 +5,12 @@
     <ul>
     {% for articulo in articulos %}
         {% if articulo.autor == user.username %}
-        <div class="card border-white mb-2" style="max-width: 90%;">
+            <div class="card border-white mb-2" style="max-width: 90%;">
             <div class="card-header text-white bg-dark border-primary">{{ articulo.autor }}</div>
             <div class="card-body bg-light">
+                {% if articulo.imagen %}
+                <img src="{{ articulo.imagen.url }}" width="150" height="150" align="right"/>
+                {% endif %}
                 <h5 class="card-title">{{ articulo.titulo }}</h5>
                 <p class="card-text">{{ articulo.subtitulo }}</p>
             </div>

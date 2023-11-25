@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+
+{% load static %}
+
 {% block contenido %}
 <div class='contenido'>
 <p>
@@ -20,8 +23,21 @@
 <strong>Modificado</strong> {{ object.editado }}
 </p>
 </div>
-<a href="{% url 'editar' articulo.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editar</a>
-<a href="{% url 'eliminar' articulo.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Borrar</a>
-<a href="{% url 'listar' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Volver</a>
+
+<button type="button" class="btn btn-secondary">
+    <a class="enlace" href="{% url 'editar' articulo.id %}">
+        <img src="{% static 'assets\img\icons8-editar-24.png' %}" href="{% url 'listar' %}" width="30" height="30" alt="">
+    </a>
+</button>
+<button type="button" class="btn btn-secondary">
+    <a class="enlace" href="{% url 'eliminar' articulo.id %}">
+        <img src="{% static 'assets\img\icons8-borrar-24.png' %}" width="30" height="30" alt="">
+    </a>
+</button>
+<button type="button" class="btn btn-secondary">
+    <a class="enlace" href="{% url 'listar' %}">
+        <img src="{% static 'assets\img\icons8-volver-24.png' %}" width="30" height="30" alt="">
+    </a>
+</button>
 
 {% endblock contenido %}

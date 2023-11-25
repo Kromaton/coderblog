@@ -10,10 +10,20 @@ body {
     background-color: black;
     background-image: url(../assets/img/fondo.jpg);
     background-size: cover;
-
-
 }
-h1 { 
+
+
+.Index {
+    margin: 60px auto 60px 100px;
+}
+.titulo { 
+    font-family: 'MuseoModerno', sans-serif;
+    font-size: 140px;
+    color: white;
+}
+.subtitulo {
+    font-family: 'MuseoModerno', sans-serif;
+    font-size: 40px;
     color: white;
 }
 
@@ -21,6 +31,7 @@ h1 {
     display: flexbox;
     place-items: center;
     place-content: center;
+
     width: 80%;
     justify-content: center;
     border: 1px solid white;
@@ -28,6 +39,41 @@ h1 {
     padding: 10px 10px 10px 10px;
     background-color: gray;
 }
+
+.profile {
+    display: flex;
+    place-items: center;
+    place-content: center;
+
+    width: 80%;
+    justify-content: center;
+    border: 1px solid white;
+    margin: 60px 10% 60px 10%;
+    padding: 10px 10px 10px 10px;
+    background-color: gray;
+}
+.profileForm {
+    display: inline-block;
+    padding: 1rem 1rem;
+    vertical-align: middle;
+
+}
+.Acerca {
+    display: flex;
+    width: 80%;
+    height: 562px;
+    border: 1px solid white;
+    margin: 60px 10% 60px 10%;
+    padding: 10px 10px 10px 10px;
+    background-color: gray;
+}
+.childAcerca {
+    display: inline-block;
+    padding: 1rem 1rem;
+    vertical-align: middle;
+}
+
+
 .card-footer {
     font-size: small;
 }

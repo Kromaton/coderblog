@@ -23,7 +23,7 @@
 <strong>Modificado</strong> {{ object.editado }}
 </p>
 </div>
-
+{% if user.username == object.autor%}
 <button type="button" class="btn btn-secondary">
     <a class="enlace" href="{% url 'editar' articulo.id %}">
         <img src="{% static 'assets\img\icons8-editar-24.png' %}" href="{% url 'listar' %}" width="30" height="30" alt="">
@@ -34,6 +34,7 @@
         <img src="{% static 'assets\img\icons8-borrar-24.png' %}" width="30" height="30" alt="">
     </a>
 </button>
+{% endif %}
 <button type="button" class="btn btn-secondary">
     <a class="enlace" href="{% url 'listar' %}">
         <img src="{% static 'assets\img\icons8-volver-24.png' %}" width="30" height="30" alt="">

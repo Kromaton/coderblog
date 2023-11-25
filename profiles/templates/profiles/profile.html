@@ -1,17 +1,15 @@
 {% extends "base.html" %}
 
 {% block contenido %}
-<div class="contenido">
-  <p>Tu usuario es <b>{{ object.username }}</b></p>
-
-  <h3>Editar datos:</h3>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Guardar"/>
-  </form>
-</div>
-<div>
-  <img src="{{ user.avatar.imagen.url }}" />
+<div class="profile">
+  <img src="{{ user.avatar.imagen.url }}" height=250px width=250px />
+  <div class="profileForm">
+    <h1>Tu usuario es {{ object.username }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Guardar"/>
+    </form>
+  </div>
 </div>
 {% endblock contenido %}

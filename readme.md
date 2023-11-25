@@ -26,5 +26,8 @@ username:krom
 contraseña:burrfoot
 
 # Usuarios normales
-kromaton, burrfoot
-faba, matic2.0
+username: kromaton
+password: burrfoot
+
+username: faba
+password: matic2.0

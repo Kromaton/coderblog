@@ -10,11 +10,9 @@ class ArticuloListView(ListView):
     model = Articulo
     template_name = 'papers/articulos.html'
     
-
-
 class ArticuloCreateView(LoginRequiredMixin, CreateView):
     model = Articulo
-    fields = ('titulo', 'subtitulo', 'contenido')
+    fields = ('titulo', 'subtitulo', 'contenido', 'imagen')
     success_url = reverse_lazy('listar')
     
     def form_valid(self, form):
@@ -40,7 +38,6 @@ class ArticuloDeleteView(LoginRequiredMixin, DeleteView):
 
 @login_required
 def listar_mis_articulos(request):
-    # Data de pruebas, más adelante la llenaremos con nuestros cursos de verdad
     contexto = {
         "articulos": Articulo.objects.all(),
     }

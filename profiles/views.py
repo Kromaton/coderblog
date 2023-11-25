@@ -28,7 +28,6 @@ def login_view(request):
     next_url = request.GET.get('next')
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
-
         if form.is_valid():
             data = form.cleaned_data
             usuario = data.get('username')
@@ -63,7 +62,6 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
 def agregar_avatar(request):
     if request.method == "POST":
         formulario = AvatarFormulario(request.POST, request.FILES)
-        
         if formulario.is_valid():
             avatar = formulario.save()
             avatar.user = request.user

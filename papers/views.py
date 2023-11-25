@@ -29,7 +29,7 @@ class ArticuloDetailView(DetailView):
     
 class ArticuloUpdateView(LoginRequiredMixin, UpdateView):
     model = Articulo
-    fields = ('titulo', 'subtitulo', 'contenido')
+    fields = ('titulo', 'subtitulo', 'contenido', 'imagen')
     success_url = reverse_lazy('listar')
 
 class ArticuloDeleteView(LoginRequiredMixin, DeleteView):
